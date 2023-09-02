@@ -1,6 +1,25 @@
-Array.prototype.last = function() {
-    return this[this.length - 1] !== undefined ?  this[this.length - 1] : -1
+/**
+ * @param {string} s
+ * @param {number[]} indices
+ * @return {string}
+ */
+var restoreString = function(s, indices) {
+    let resultStr = ''
+
+    for (let i = 0; i < indices.length; i++) {
+        resultStr+= s[indices[i]]
+    }
+
+    return resultStr
 };
 
-const arr = [];
-console.log(arr.last()); // 3
+var restoreString = function(s, idx) {
+    const result = [];
+    for(let i = 0; i < s.length; i++) {
+        result[idx[i]] = s[i]
+    }
+    return result.join('');
+};
+
+
+console.log(restoreString('abc', [2,0,1]))
