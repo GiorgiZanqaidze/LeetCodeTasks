@@ -1,22 +1,28 @@
 /**
- * @param {string} s
- * @return {boolean}
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
  */
-const isValid = function(s) {
-    const validPairs = [ "()", "{}", "[]"]
-    let valid = false
+var twoSum = function(nums, target) {
 
-    for (let i = 0; i < s.length; i+=2) {
-        const pairs = s[i] + s[i + 1]
-        if (validPairs.includes(pairs)) {
-            valid = true
-        } else {
-            valid = false
-            break;
+    let indexes = []
+
+
+    for (let i = 0; i < nums.length; i++) {
+
+        const firstNum = nums[i]
+
+        for (let j = i + 1; j < nums.length; j++) {
+
+            if (firstNum + nums[j] === target) {
+                indexes = [i, j]
+                break;
+            }
         }
     }
-    return valid
+
+    return indexes
 };
 
 
-console.log(isValid('(){)'))
+console.log(twoSum([1,2,3], 4))
