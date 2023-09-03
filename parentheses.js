@@ -15,7 +15,6 @@ const isValid = function(s) {
             break;
         }
     }
-
     return valid
 };
 
