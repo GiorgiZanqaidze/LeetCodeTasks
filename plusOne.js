@@ -1,24 +1,23 @@
 /**
- * @param {number[]} digits
- * @return {number[]}
+ * @param {string[]} strs
+ * @return {string}
  */
-// var plusOne = function(digits) {
-//     return  parseInt(digits.join('')) + 1
-// };
-
-var plusOne = function(digits) {
-    let number = digits[digits.length - 1]
-
-
-    if (number !== 9) {
-        number+=1
-    }  else {
-        number = 0
+const longestCommonPrefix = function(strs) {
+    if (strs.length == 0) {
+        return ''
     }
 
-    digits[digits.length - 1] = number
+    let prefix = strs[0]
 
-    return digits
+    for (let i = 0; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) != 0) {
+            prefix = prefix.substring(0, prefix.length - 1)
+        }
+    }
+
+    return prefix
+
 };
 
-console.log(plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]))
+
+console.log(longestCommonPrefix(["flower","flow","flight"]))
